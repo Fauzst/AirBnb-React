@@ -1,7 +1,7 @@
 import './App.css'
 import Hero from './hero'
 import Card from './Card'
-
+import data from './data'
 
 function Navbar(){
   return (
@@ -12,18 +12,25 @@ function Navbar(){
 }
 
 function App() {
+  let cards = data.map(item => {
+    return (
+      <Card 
+        key={item.id}
+        {...item}
+      />
+    )
+  })
 
+ console.log(cards)
   return (
     <>
       <Navbar />
       <Hero />
-      <div className='scroll'>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      </div>
+      <section className='scroll'>
+        {cards}
+      
+
+      </section>
     </>
   )
 }
